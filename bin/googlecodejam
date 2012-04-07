@@ -36,7 +36,8 @@ else
     time = Time.now
     puts "Running..."
     GoogleCodeJam::Runner.new(options)
-    puts "Finished in #{Time.now - time}ms"
+    puts "Output written in: #{options[:output].inspect}"
+    puts "Finished in #{Time.now - time}ms."
   else
     puts "'source' and 'input' options are required. Use --help for details."
   end

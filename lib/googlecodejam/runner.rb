@@ -18,6 +18,7 @@ module GoogleCodeJam
       end.strip
 
       File.open(options[:output], 'w+') {|f| f.write(output) }
+      options
     end
 
     protected

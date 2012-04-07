@@ -23,6 +23,13 @@ Run the utility by giving the source algorithm and input file (downloaded from G
 
     googlecodejam -s reverse_words.rb  -i B-small-practice.in
 
+So you'll see the following output:
+
+    Running...
+    Output written in: "B-small-practice.out"
+    Finished in 0.000712ms.
+
+Have fun!
 
 License
 ---
