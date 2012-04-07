@@ -10,7 +10,7 @@ Install the gem:
 
     gem install googlecodejam
 
-Write a class to resolve single entries the problem, like this:
+Write a class to resolve single entries of the problem, like this:
 
     # reverse_words.rb
     class ReverseWords
