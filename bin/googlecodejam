@@ -1,0 +1,43 @@
+#!/usr/bin/ruby
+$: << './lib'
+require 'googlecodejam'
+require 'optparse'
+
+options = {}
+opts = OptionParser.new do |opts|
+  opts.banner = <<BANNER
+--------------------------------------------------------------------------------------------------- 
+Google Code Jam - Runner Utility for Ruby
+Usage:
+  googlecodejam -s src/algorighm_path.rb -i src/A-small-practice.in -o src/A-small-practice.out
+  googlecodejam -s src/algorighm_path.rb -i src/B-large-practice.in -o src/B-large-practice.out
+--------------------------------------------------------------------------------------------------- 
+BANNER
+  opts.on("-s [path]", "--source [path]", "Path to your problem solving source code.") do |source|
+    options[:source] = source
+  end
+  opts.on("-i [path]", "--input [path]", "Path of the input file ('small.in' or 'large.in' path)") do |input|
+    options[:input] = input
+  end
+  opts.on("-o", "--output [path]", "Path where output ([type].out) file will be saved.") do |output|
+    options[:output] = output
+  end
+  opts.on_tail("-h", "--help", "Show this help message.") do
+    puts opts
+    exit
+  end
+end
+opts.parse!(ARGV)
+
+if options.empty?
+  puts opts
+else
+  if options[:source] && options[:input] 
+    time = Time.now
+    puts "Running..."
+    GoogleCodeJam::Runner.new(options)
+    puts "Finished in #{Time.now - time}ms"
+  else
+    puts "'source' and 'input' options are required. Use --help for details."
+  end
+end
